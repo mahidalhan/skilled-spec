@@ -86,7 +86,7 @@ Install as a Claude Code plugin for automatic setup:
 claude
 
 # Add the marketplace (one-time setup)
-/plugin marketplace add https://github.com/yourusername/specd-out-skills
+/plugin marketplace add https://github.com/mahidalhan/specd-out-skills
 
 # Install the plugin
 /plugin install spec-driven-dev
@@ -101,11 +101,11 @@ Copy skills directly into your project:
 ```bash
 # For existing projects
 cd your-project
-git clone https://github.com/yourusername/specd-out-skills .claude/plugins/spec-driven-dev
+git clone https://github.com/mahidalhan/specd-out-skills .claude/plugins/spec-driven-dev
 cp -r .claude/plugins/spec-driven-dev/skills .claude/
 
 # For new projects
-git clone https://github.com/yourusername/specd-out-skills
+git clone https://github.com/mahidalhan/specd-out-skills
 cd specd-out-skills
 # Skills are ready to use!
 ```

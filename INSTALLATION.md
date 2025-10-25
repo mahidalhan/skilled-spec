@@ -20,7 +20,7 @@ cd your-project
 claude
 
 # Add the marketplace (one-time setup)
-/plugin marketplace add https://github.com/yourusername/specd-out-skills
+/plugin marketplace add https://github.com/mahidalhan/specd-out-skills
 ```
 
 ### Step 2: Install the Plugin
@@ -74,7 +74,7 @@ Direct copy is simpler for small teams or when you want to customize the skills 
 cd your-project
 
 # Clone into .claude/plugins directory
-git clone https://github.com/yourusername/specd-out-skills .claude/plugins/spec-driven-dev
+git clone https://github.com/mahidalhan/specd-out-skills .claude/plugins/spec-driven-dev
 
 # Copy skills to .claude/skills (so Claude Code finds them)
 mkdir -p .claude/skills
@@ -88,7 +88,7 @@ claude
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/specd-out-skills
+git clone https://github.com/mahidalhan/specd-out-skills
 cd specd-out-skills
 
 # The skills directory is already in place
@@ -106,10 +106,10 @@ cd your-project
 
 # Add as a subtree or submodule
 git subtree add --prefix .claude/skills/spec-driven-dev \
-  https://github.com/yourusername/specd-out-skills.git main --squash
+  https://github.com/mahidalhan/specd-out-skills.git main --squash
 
 # Or as a submodule
-git submodule add https://github.com/yourusername/specd-out-skills.git \
+git submodule add https://github.com/mahidalhan/specd-out-skills.git \
   .claude/plugins/spec-driven-dev
 
 # Copy skills
@@ -206,7 +206,7 @@ spec/
 2. **Try adding marketplace again:**
    ```bash
    /plugin marketplace remove specd-out-skills
-   /plugin marketplace add https://github.com/yourusername/specd-out-skills
+   /plugin marketplace add https://github.com/mahidalhan/specd-out-skills
    ```
 3. **Check network connection** (marketplace requires internet access)
 4. **Fall back to direct copy method** if plugin system has issues
@@ -297,7 +297,7 @@ After installation:
 ## Getting Help
 
 - **Documentation:** [README.md](README.md), [CLAUDE.md](CLAUDE.md)
-- **Issues:** [GitHub Issues](https://github.com/yourusername/specd-out-skills/issues)
+- **Issues:** [GitHub Issues](https://github.com/mahidalhan/specd-out-skills/issues)
 - **OpenSpec:** [OpenSpec Documentation](https://github.com/Fission-AI/OpenSpec) (methodology reference)
 - **Claude Code:** [Official Docs](https://docs.claude.com/en/docs/claude-code/overview)
 
