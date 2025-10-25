@@ -1,72 +1,39 @@
 # Spec'd Out Skills
 
-**Spec-driven development for Claude Code, powered by natural language.**
-
-> Inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec), reimagined as a Claude Code plugin with zero installation friction.
+**Spec-driven development for Claude Code. Plan first, build second.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-blue.svg)](https://docs.claude.com/en/docs/claude-code/overview)
 
-## What is This?
+> Natural language spec-driven development inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec), reimagined as Claude Code skills.
 
-**Stop vibe coding.** Start with specs that both humans and AI understand.
+## Overview
 
-Spec'd Out Skills brings OpenSpec's proven workflow to Claude Code through four composable skills that activate automatically when you talk to Claude. No CLI tools, no commands to memorize—just describe what you want to do.
+Spec'd Out Skills brings structured specification-driven development to Claude Code through four composable skills that activate through natural conversation. No CLI tools to install, no commands to memorize—just describe what you want.
 
+**The workflow:**
 ```
-You: I want to add user authentication
+You: I want to add two-factor authentication
 Claude: [spec-proposal-creation activates]
-        I'll create a spec proposal for user authentication...
+        Creating spec proposal for 2FA...
 
-        Created:
-        - spec/changes/add-user-auth/proposal.md
-        - spec/changes/add-user-auth/tasks.md
-        - spec/changes/add-user-auth/specs/authentication/spec-delta.md
+        ✓ Created spec/changes/add-2fa/proposal.md
+        ✓ Created spec/changes/add-2fa/tasks.md
+        ✓ Created spec/changes/add-2fa/specs/authentication/spec-delta.md
 
-        Review the proposal. Say "implement it" when ready.
+        Review and say "implement it" when ready.
 ```
 
-### Why Spec-Driven Development?
+### Why Specifications?
 
-| Vibe Coding | Spec-Driven Development |
-|-------------|------------------------|
-| "Just build it" | Plan first, then build |
-| AI guesses what you want | AI follows explicit requirements |
-| Changes are implicit | Changes are documented |
-| No audit trail | Full change history |
-| Hard to review | Easy to review |
-| Breaks on updates | Survives refactoring |
+AI coding assistants are powerful, but without structure they guess. Guesses compound into assumptions, bugs, and rewrites. Spec-driven development ensures human and AI align on requirements before writing code.
 
-**The problem**: AI coding assistants are powerful, but without structure, they guess. And guesses compound. One vague request leads to assumptions, which lead to bugs, which lead to rewrites.
+**Three stages:**
+1. **Propose** → Create structured specs with EARS requirements
+2. **Implement** → Build with test-driven development, track progress
+3. **Archive** → Merge spec deltas, preserve history
 
-**The solution**: Specification-driven development. Human and AI agree on what to build before building it. Changes are proposed, reviewed, implemented, and archived with full traceability.
-
-## The Workflow
-
-```
-┌─────────────────────────────────────────┐
-│  1. PROPOSE                             │
-│  "I want to add search"                 │
-│  → Claude creates structured proposal   │
-│  → Spec deltas with EARS requirements  │
-│  → Implementation tasks                 │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│  2. IMPLEMENT                           │
-│  "Implement the search proposal"        │
-│  → Claude executes tasks sequentially  │
-│  → Tests each task before completion   │
-│  → Tracks progress with TodoWrite      │
-└─────────────────────────────────────────┘
-                    ↓
-┌─────────────────────────────────────────┐
-│  3. ARCHIVE                             │
-│  "Archive the search change"            │
-│  → Claude merges spec deltas           │
-│  → Creates timestamped archive         │
-│  → Updates living documentation        │
-└─────────────────────────────────────────┘
-```
+Changes are proposed, reviewed, implemented, and archived with full traceability.
 
 ## Quick Start
 
@@ -79,16 +46,12 @@ Claude: [spec-proposal-creation activates]
 
 **Option 1: Plugin Installation (Recommended)**
 
-Install as a Claude Code plugin for automatic setup:
-
 ```bash
-# In your project directory, start Claude Code
+# Start Claude Code in your project
 claude
 
-# Add the marketplace (one-time setup)
+# Add the plugin
 /plugin marketplace add https://github.com/mahidalhan/specd-out-skills
-
-# Install the plugin
 /plugin install spec-driven-dev
 
 # Restart Claude Code
@@ -96,280 +59,220 @@ claude
 
 **Option 2: Direct Copy**
 
-Copy skills directly into your project:
-
 ```bash
-# For existing projects
+# Clone into your project
 cd your-project
 git clone https://github.com/mahidalhan/specd-out-skills .claude/plugins/spec-driven-dev
 cp -r .claude/plugins/spec-driven-dev/skills .claude/
 
-# For new projects
-git clone https://github.com/mahidalhan/specd-out-skills
-cd specd-out-skills
-# Skills are ready to use!
+# Skills are ready to use
 ```
 
-### Walkthrough: Add a Search Feature
+## Walkthrough: Add Two-Factor Authentication
 
-Let's walk through adding a search feature to your app. This example demonstrates the complete workflow from idea to deployment.
+This example demonstrates the complete workflow from proposal to deployment.
 
-**1. Propose the feature** (natural language, no commands)
-
-```
-You: I want to add full-text search to posts with filtering by category and date
-```
-
-Claude creates a structured proposal:
+### 1. Propose the Feature
 
 ```
-Created: spec/changes/add-post-search/
-
-📄 proposal.md
-   Why: Users need fast access to historical posts
-   What: Full-text search with category/date filters
-   Impact: Affects database schema, API endpoints, UI components
-
-📋 tasks.md
-   1. Add search indexes to database
-   2. Create search API endpoint
-   3. Build search UI component
-   4. Add filter controls
-   5. Write integration tests
-
-📐 specs/search/spec-delta.md
-   ## ADDED
-   ### Requirement: Full-Text Search
-   WHEN a user enters search terms,
-   the system SHALL return matching posts ranked by relevance...
+You: I want to add two-factor authentication using TOTP
 ```
 
-**2. Review and refine**
+Claude creates a structured proposal in `spec/changes/add-2fa/`:
 
-Check `spec/changes/add-post-search/proposal.md`. If you want changes, just say:
+**proposal.md**
+```markdown
+# Add Two-Factor Authentication
+
+## Why
+Users need additional account security beyond passwords. Industry standard
+for protecting sensitive accounts.
+
+## What
+Time-based one-time password (TOTP) 2FA using authenticator apps.
+Optional enrollment, required for admin accounts.
+
+## Impact
+- Database: Add `users.totp_secret` and `users.totp_enabled` fields
+- API: New endpoints for setup, verify, disable
+- UI: Settings page for 2FA enrollment
+- Auth flow: Check 2FA status after password verification
+```
+
+**tasks.md**
+```markdown
+# Implementation Tasks
+
+1. Add database migration for TOTP fields
+2. Install and configure TOTP library (speakeasy)
+3. Create 2FA setup endpoint (generate secret, return QR code)
+4. Create 2FA verification endpoint
+5. Create 2FA disable endpoint
+6. Update login flow to check 2FA status
+7. Build 2FA settings UI component
+8. Write integration tests for 2FA flow
+9. Add 2FA recovery codes
+```
+
+**specs/authentication/spec-delta.md**
+```markdown
+## ADDED
+
+### Requirement: TOTP 2FA Enrollment
+WHEN a user enables two-factor authentication,
+the system SHALL generate a unique TOTP secret and display a QR code
+for scanning with an authenticator app.
+
+#### Scenario: Successful Enrollment
+GIVEN a logged-in user without 2FA enabled
+WHEN the user requests to enable 2FA
+THEN the system generates a unique TOTP secret
+AND displays a QR code containing the secret
+AND requires the user to verify with a code before enabling
+
+#### Scenario: Already Enrolled
+GIVEN a user with 2FA already enabled
+WHEN the user attempts to enable 2FA again
+THEN the system returns an error "2FA is already enabled"
+
+### Requirement: TOTP 2FA Verification
+WHEN a user with 2FA enabled logs in,
+the system SHALL require a valid TOTP code after password verification.
+
+#### Scenario: Valid Code
+GIVEN a user with 2FA enabled and correct password
+WHEN the user submits a valid TOTP code
+THEN the system creates an authenticated session
+AND grants access to the account
+
+#### Scenario: Invalid Code
+GIVEN a user with 2FA enabled and correct password
+WHEN the user submits an invalid TOTP code
+THEN the system rejects the login
+AND displays error "Invalid verification code"
+```
+
+### 2. Review and Refine
+
+Check the proposal. If you want changes, just say:
 
 ```
-You: Add pagination to the search results
+You: Add recovery codes in case the user loses their device
 ```
 
-Claude updates the proposal and tasks accordingly.
+Claude updates the proposal, tasks, and spec delta accordingly.
 
-**3. Implement the feature**
+### 3. Implement the Feature
 
 ```
-You: Implement the post search proposal
+You: Implement the 2FA proposal
 ```
 
 Claude executes tasks with visible progress:
 
 ```
 Implementation Progress:
-✅ Add search indexes to database
-✅ Create search API endpoint
-⏳ Build search UI component (testing...)
-⬜ Add filter controls
-⬜ Write integration tests
+✅ Add database migration for TOTP fields
+✅ Install and configure TOTP library
+✅ Create 2FA setup endpoint
+⏳ Create 2FA verification endpoint (testing...)
+⬜ Create 2FA disable endpoint
+⬜ Update login flow to check 2FA status
+⬜ Build 2FA settings UI component
+⬜ Write integration tests for 2FA flow
+⬜ Add 2FA recovery codes
 
-Running: npm test src/api/search.test.ts
+Running: npm test src/api/auth/2fa.test.ts
 ✓ All tests passing
 ```
 
-**4. Verify implementation**
+When complete, Claude creates `spec/changes/add-2fa/IMPLEMENTED`.
 
-```bash
-# Claude creates this marker when done
-ls spec/changes/add-post-search/IMPLEMENTED
-```
-
-**5. Deploy and archive**
+### 4. Deploy and Archive
 
 After deploying to production:
 
 ```
-You: Archive the post search change
+You: Archive the 2FA change
 ```
 
 Claude merges the specs:
 
 ```
-Merged into spec/specs/search/spec.md:
-- 3 requirements ADDED
-- 12 scenarios documented
+Archiving add-2fa...
 
-Archived to: spec/archive/2025-10-26-add-post-search/
+Merged into spec/specs/authentication/spec.md:
+- 2 requirements ADDED
+- 4 scenarios documented
 
-Your living specs are now up to date! 🎉
+Archived to: spec/archive/2025-10-26-add-2fa/
+  ✓ proposal.md
+  ✓ tasks.md
+  ✓ specs/authentication/spec-delta.md
+
+Living specs updated. ✓
 ```
 
-That's it. **Plan → Implement → Archive**. No commands to memorize. Just conversation.
+## The Four Skills
 
-## Four Skills, Infinite Possibilities
+| Skill | Activates When | What It Does | Example |
+|-------|---------------|--------------|---------|
+| **spec-proposal-creation** | "create proposal", "plan feature", "design spec" | Generates change ID, writes proposal.md, tasks.md, and spec-delta.md with EARS requirements | "Create a proposal for password reset" |
+| **spec-implementation** | "implement", "build", "apply change" | Loads proposal, executes tasks with TodoWrite tracking, tests before completion | "Implement the password reset proposal" |
+| **spec-archiving** | "archive change", "merge specs", "finalize" | Verifies IMPLEMENTED marker, creates timestamped archive, merges deltas into living specs | "Archive the password reset change" |
+| **spec-context-loading** | "what specs exist", "show changes", "project context" | Lists specs, shows active/archived changes, searches requirements | "What specs exist?" |
 
-### 1. spec-proposal-creation
+### Detailed Documentation
 
-**Activates when you want to plan a feature.**
-
-Triggers: "create proposal", "plan feature", "spec change", "design spec"
-
-**What it does:**
-- Generates unique change IDs
-- Creates proposal.md (Why, What, Impact)
-- Writes tasks.md (numbered implementation checklist)
-- Crafts spec deltas with EARS-formatted requirements
-- Validates structure with grep patterns
-- Presents for your approval
-
-**Example:**
-```
-You: Create a proposal for password reset via email
-Claude: I'll create a spec proposal...
-
-        Change ID: add-password-reset
-        Specs affected: authentication
-        Tasks: 8
-        Requirements: 3 (ADDED)
-```
-
-### 2. spec-implementation
-
-**Activates when you're ready to build.**
-
-Triggers: "implement", "apply change", "execute spec", "build feature"
-
-**What it does:**
-- Loads proposal and understands requirements
-- Sets up TodoWrite progress tracking
-- Executes tasks one at a time
-- Tests before marking complete
-- Marks proposal as implementation-complete
-
-**Example:**
-```
-You: Implement the password reset proposal
-Claude: Reading proposal and tasks...
-
-        Implementation Progress:
-        - [x] Add email service
-        - [x] Create reset token model
-        - [ ] Build reset endpoint
-        - [ ] Add email templates
-        ...
-```
-
-### 3. spec-archiving
-
-**Activates when work is deployed.**
-
-Triggers: "archive change", "merge specs", "finalize", "mark as done"
-
-**What it does:**
-- Verifies implementation complete
-- Creates timestamped archive directory
-- Merges spec deltas into living specs:
-  - **ADDED** → appends to specs
-  - **MODIFIED** → replaces requirement blocks
-  - **REMOVED** → deletes with comments
-- Validates merged spec structure
-
-**Example:**
-```
-You: Archive the password reset change
-Claude: Archiving add-password-reset...
-
-        Merged into spec/specs/authentication/spec.md:
-        - 3 requirements ADDED
-        - 1 requirement MODIFIED
-
-        Archived to: spec/archive/2025-10-26-add-password-reset/
-```
-
-### 4. spec-context-loading
-
-**Activates when you need to understand the project.**
-
-Triggers: "what specs exist", "show changes", "find specs", "project context"
-
-**What it does:**
-- Lists all specifications and capabilities
-- Shows active and archived changes
-- Searches requirements by keyword
-- Displays dashboard views
-- Reads specific specs on demand
-
-**Example:**
-```
-You: What specs exist?
-Claude: The project has specifications for:
-
-        - authentication: 12 requirements
-        - billing: 8 requirements
-        - notifications: 5 requirements
-
-        Active changes: 2
-        Archived changes: 15
-```
+Each skill has comprehensive documentation in its `SKILL.md` file:
+- `skills/spec-proposal-creation/SKILL.md` - Proposal creation workflow
+- `skills/spec-implementation/SKILL.md` - Implementation with TDD
+- `skills/spec-archiving/SKILL.md` - Archiving and merging
+- `skills/spec-context-loading/SKILL.md` - Context and discovery
 
 ## File Structure
 
-### Plugin Structure
-
-After installing the plugin, your project will look like this:
+After installation, your project structure:
 
 ```
 your-project/
 ├── .claude/
-│   ├── skills/                    # Skills (if using direct copy method)
+│   ├── skills/                    # Skills (direct copy method)
 │   │   ├── spec-proposal-creation/
 │   │   ├── spec-implementation/
 │   │   ├── spec-archiving/
 │   │   └── spec-context-loading/
-│   └── plugins/                   # Plugins (if using plugin installation)
+│   └── plugins/                   # Plugins (plugin installation method)
 │       └── spec-driven-dev/
-│           ├── .claude-plugin/
-│           │   ├── plugin.json
-│           │   └── marketplace.json
 │           └── skills/
-│               ├── spec-proposal-creation/
-│               ├── spec-implementation/
-│               ├── spec-archiving/
-│               └── spec-context-loading/
-└── spec/                          # Created by the skills during use
-    ├── specs/                     # Living specifications
+└── spec/                          # Created during use
+    ├── specs/                     # Living specifications (source of truth)
     │   ├── authentication/
-    │   │   └── spec.md
-    │   ├── billing/
     │   │   └── spec.md
     │   └── {capability}/
     │       └── spec.md
-    ├── changes/                   # Active proposals
-    │   ├── add-search/
+    ├── changes/                   # Active proposals (work in progress)
+    │   ├── add-2fa/
     │   │   ├── proposal.md
     │   │   ├── tasks.md
-    │   │   ├── IMPLEMENTED        # Marker file (created when implementation done)
+    │   │   ├── IMPLEMENTED
     │   │   └── specs/
     │   │       └── {capability}/
     │   │           └── spec-delta.md
     │   └── {change-id}/
-    └── archive/                   # Completed changes
-        └── 2025-10-26-add-search/
+    └── archive/                   # Historical record (timestamped)
+        └── 2025-10-26-add-2fa/
 ```
 
 ### The Two-Folder Model
 
-The `spec/` directory uses a clear separation:
+- **`specs/`** = Current state (always up to date)
+- **`changes/`** = Proposals in flight (temporary)
+- **`archive/`** = Historical record (permanent)
 
-- **`specs/`** = Source of truth (always current state)
-- **`changes/`** = Proposals in flight (temporary, work in progress)
-- **`archive/`** = Historical record (permanent, timestamped)
+This separation makes it easy to review changes before they affect living specs and track system evolution over time.
 
-This separation makes it easy to:
-- See what's currently specified vs. what's being proposed
-- Review changes before they affect living specs
-- Track the evolution of your system over time
-
-When you modify existing features, the delta lives in `changes/` until you're ready to merge it into `specs/`.
-
-## EARS Format Requirements
+## EARS Format
 
 Requirements use **EARS** (Easy Approach to Requirements Syntax):
 
@@ -395,25 +298,23 @@ AND displays error "Invalid email or password"
 - Clear trigger conditions (WHEN/IF/WHERE/WHILE)
 - Binding requirements (SHALL)
 - Testable scenarios (GIVEN/WHEN/THEN)
-- Industry-standard format
+- Industry standard
 
 Learn more: [EARS Format Guide](https://alistairmavin.com/ears/)
 
-## Comparisons
+## Comparison with OpenSpec
 
-### vs. OpenSpec
-
-Spec'd Out Skills is **inspired by OpenSpec** but reimagined for Claude Code's native capabilities:
+Spec'd Out Skills shares OpenSpec's proven methodology, adapted for Claude Code:
 
 | Feature | OpenSpec | Spec'd Out Skills |
 |---------|----------|-------------------|
-| **Installation** | `npm install -g` | `/plugin install` or copy skills |
-| **Activation** | `/openspec:proposal` | "create a proposal" (natural language) |
+| **Installation** | `npm install -g openspec` | `/plugin install spec-driven-dev` |
+| **Activation** | `/openspec:proposal` | "create a proposal" |
 | **Validation** | `openspec validate` | Grep patterns (built-in) |
-| **Discovery** | `openspec list` | "what specs exist" (conversational) |
-| **Platform** | Standalone CLI tool | Claude Code plugin/skills |
-| **Dependencies** | Node.js + npm | None (pure Claude Code) |
-| **Workflow** | ✅ Same proven 3-stage workflow | ✅ Same proven 3-stage workflow |
+| **Discovery** | `openspec list` | "what specs exist" |
+| **Platform** | Standalone CLI | Claude Code plugin |
+| **Dependencies** | Node.js + npm | None |
+| **Workflow** | ✅ 3-stage (propose/implement/archive) | ✅ 3-stage (propose/implement/archive) |
 | **EARS format** | ✅ Yes | ✅ Yes |
 | **Spec deltas** | ✅ ADDED/MODIFIED/REMOVED | ✅ ADDED/MODIFIED/REMOVED |
 | **Two-folder model** | ✅ specs/ + changes/ | ✅ specs/ + changes/ |
@@ -421,76 +322,36 @@ Spec'd Out Skills is **inspired by OpenSpec** but reimagined for Claude Code's n
 **Use OpenSpec if:**
 - You want the official, mature CLI with rich integrations
 - You need enterprise-grade tooling
-- Your team already uses npm-based workflows
+- Your team uses npm-based workflows
 - You want IDE-agnostic tooling
 
 **Use Spec'd Out Skills if:**
 - You're already using Claude Code daily
-- You want zero installation friction (plugin-based)
+- You want zero installation friction
 - You prefer natural language over slash commands
 - You want to customize or extend the workflow
-- You want skills that work anywhere Claude Code works
 
-**Credit**: All credit for the spec-driven development methodology goes to the [OpenSpec team](https://github.com/Fission-AI/OpenSpec). We're just making it more accessible through Claude Skills.
+**Methodology credit**: All credit for spec-driven development methodology goes to the [OpenSpec team](https://github.com/Fission-AI/OpenSpec). Spec'd Out Skills makes it accessible through Claude Code skills.
 
-### vs. No Specs (Vibe Coding)
+## Team Adoption
 
-What happens when you skip specifications entirely?
-
-| Without Specs | With Spec'd Out Skills |
-|---------------|------------------------|
-| **Planning** | "Just build it" → AI guesses your intent | Explicit proposal reviewed before coding |
-| **Changes** | Implicit, scattered across commits | Documented in structured spec deltas |
-| **Testing** | After-the-fact, often incomplete | Test scenarios defined upfront (GIVEN/WHEN/THEN) |
-| **Reviews** | "What does this code do?" | "Does this match the approved spec?" |
-| **History** | Git blame + guesswork | Timestamped archive with full context |
-| **Refactoring** | Break things, fix later | Specs survive rewrites |
-| **Onboarding** | Read the code (good luck) | Read the specs (clear intent) |
-| **Scope creep** | Common (no boundaries) | Prevented (change scope explicit) |
-
-**Real scenario:**
-
-**Without specs:**
-```
-You: Add user authentication
-Claude: *implements OAuth, session cookies, JWT, password reset,
-        2FA, and email verification without asking*
-You: Wait, I just wanted a simple login form...
-```
-
-**With specs:**
-```
-You: I want to add user authentication
-Claude: I'll create a proposal. What authentication methods?
-        (basic auth, OAuth, JWT, etc.)
-You: Just JWT tokens for now
-Claude: *Creates focused proposal with 4 requirements, 8 tasks*
-You: Perfect! Implement it.
-```
-
-The difference: **alignment before action**.
-
-## Advanced Usage
-
-### Team Adoption
-
-**Option 1: Plugin-based (Recommended for teams)**
+### Plugin-Based (Recommended)
 
 1. Create a private plugin marketplace (GitHub repo)
 2. Add `spec-driven-dev` plugin to your marketplace
-3. Team members install via `/plugin install spec-driven-dev@your-org`
+3. Team members install: `/plugin install spec-driven-dev@your-org`
 4. Everyone gets updates when you push to the marketplace
 
-**Option 2: Direct copy (Simple for small teams)**
+### Direct Copy (Simple)
 
-1. Add skills to your project repo in `.claude/skills/`
+1. Add skills to `.claude/skills/` in your project repo
 2. Commit to version control
 3. Team members clone and automatically get the skills
 4. All proposals reviewable in PRs
 
 ### Git Integration
 
-**Recommended workflow:**
+Recommended workflow:
 
 ```bash
 # After proposal
@@ -506,65 +367,27 @@ git add spec/specs/ spec/archive/
 git commit -m "Archive feature, merge spec deltas"
 ```
 
-### Customize the Spec Folder Name
-
-Default is `spec/`, but you can change it:
-
-```bash
-# Find your skills location
-# Plugin: .claude/plugins/spec-driven-dev/skills/
-# Direct: .claude/skills/
-
-# Update references (macOS/Linux)
-find .claude/plugins/spec-driven-dev/skills -name "SKILL.md" -exec sed -i '' 's/spec\//myspecs\//g' {} \;
-
-# Or for direct copy
-find .claude/skills -name "SKILL.md" -exec sed -i '' 's/spec\//myspecs\//g' {} \;
-```
-
-### Add Project-Specific Templates
-
-Extend the skills with your patterns:
-
-1. Navigate to `skills/spec-proposal-creation/templates/`
-2. Add custom templates for common features
-3. Update `reference/VALIDATION_PATTERNS.md` with project-specific rules
-4. Add examples to `reference/EXAMPLES.md`
-
-### Multi-Project Setup
-
-Use the same plugin across multiple projects:
-
-```bash
-# Install plugin once per project
-cd project-a && /plugin install spec-driven-dev
-cd project-b && /plugin install spec-driven-dev
-
-# Or use global installation (if supported)
-# Each project gets its own spec/ directory
-```
-
 ## Troubleshooting
 
-### Skills not activating?
+### Skills Not Activating?
 
-**Try these phrases:**
+Use these trigger phrases:
 - ✅ "create a proposal" (not "make a new spec")
 - ✅ "implement the change" (not "code the feature")
 - ✅ "show me specs" (not "display specifications")
 
-### Want to see what's happening?
+### Need Context?
 
-**Use the context-loading skill:**
+Use the context-loading skill:
 ```
 You: What specs exist?
 You: What changes are active?
 You: Show me the dashboard
 ```
 
-### Validation errors?
+### Validation Errors?
 
-Claude will show you exactly what's wrong and how to fix it:
+Claude shows exactly what's wrong:
 ```
 Validation failed:
 ✗ Missing scenario for Requirement: User Login
@@ -573,31 +396,28 @@ Validation failed:
 
 ## Contributing
 
-We welcome contributions! Here's how:
+Contributions welcome! Here's how:
 
-1. **Fork the repo**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/your-improvement
-   ```
-3. **Make your changes**
-4. **Test with real projects**
-5. **Submit a PR**
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feature/your-improvement`
+3. Make your changes
+4. Test with real projects
+5. Submit a PR
 
-**Ideas for contributions:**
-- Additional reference files (EXAMPLES.md, etc.)
+**Ideas:**
+- Additional reference files and examples
 - Language-specific templates
-- Integration guides for other tools
+- Integration guides
 - Better validation patterns
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) file for details.
+MIT License - See [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
 - **[OpenSpec](https://github.com/Fission-AI/OpenSpec)** - The original CLI tool and methodology
-- **[Anthropic](https://www.anthropic.com)** - Claude Skills framework and best practices
+- **[Anthropic](https://www.anthropic.com)** - Claude Code and Skills framework
 - **[EARS](https://alistairmavin.com/ears/)** - Easy Approach to Requirements Syntax
 
 ## Links
@@ -610,5 +430,3 @@ MIT License - See [LICENSE](LICENSE) file for details.
 ---
 
 **Built with Claude Skills for Claude Code**
-
-Made with ❤️ for developers who want clarity, not chaos.
