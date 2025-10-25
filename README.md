@@ -2,7 +2,7 @@
 
 **Spec-driven development for Claude Code, powered by natural language.**
 
-> Inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec), reimagined as standalone Claude Skills with zero installation friction.
+> Inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec), reimagined as a Claude Code plugin with zero installation friction.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
