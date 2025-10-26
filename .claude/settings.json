@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "skilled-spec-local": {
+      "source": {
+        "source": "directory",
+        "path": ".."
+      }
+    }
+  },
+  "enabledPlugins": {
+    "skilled-spec@skilled-spec-local": true
+  }
+}

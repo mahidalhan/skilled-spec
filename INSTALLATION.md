@@ -8,14 +8,75 @@ This guide covers both installation methods for Skilled Spec. Choose the method 
 - Git (for cloning the repository)
 - A project where you want to use spec-driven development
 
-## Method 1: Plugin Installation (Recommended)
+## Method 1: Project-Specific Configuration (Recommended)
 
-Plugin installation provides automatic setup and easier updates.
+This method keeps the plugin scoped to your project in the `.claude/` directory for easy access and project-specific scope.
+
+### Step 1: Clone into Your Project
+
+```bash
+# Navigate to your project
+cd your-project
+
+# Clone the repository
+git clone https://github.com/mahidalhan/skilled-spec
+```
+
+### Step 2: Configure Project Settings
+
+Create or update `.claude/settings.json` in your project:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "skilled-spec-local": {
+      "source": {
+        "source": "directory",
+        "path": "../skilled-spec"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "skilled-spec@skilled-spec-local": true
+  }
+}
+```
+
+### Step 3: Trust and Restart
+
+```bash
+# Restart Claude Code
+# Claude Code will detect the configuration and prompt you to trust it
+claude
+```
+
+### Step 4: Verify Installation
+
+```bash
+# Check that skills are available
+/plugin
+
+# You should see skilled-spec listed
+# Try creating your first proposal
+You: I want to add a test feature
+```
+
+### Updating
+
+```bash
+# Pull latest changes
+cd skilled-spec
+git pull origin master
+```
+
+## Method 2: Global Plugin Installation
+
+Global installation installs to your home directory (`~/.claude/plugins/marketplaces/`).
 
 ### Step 1: Add the Marketplace
 
 ```bash
-# Start Claude Code in your project
+# Start Claude Code
 cd your-project
 claude
 
@@ -28,34 +89,21 @@ claude
 ```bash
 # Install the skilled-spec plugin
 /plugin install skilled-spec
-
-# Claude Code will show a confirmation
-# Select "Install now" to proceed
 ```
 
-### Step 3: Restart Claude Code
+### Step 3: Restart and Verify
 
 ```bash
-# Exit Claude Code (Ctrl+C or type 'exit')
-# Restart in your project directory
+# Restart Claude Code
 claude
+
+# Verify installation
+/plugin
 ```
 
-### Step 4: Verify Installation
+### Updating
 
 ```bash
-# Check that skills are available
-/help
-
-# You should see the four skills listed
-# Try creating your first proposal
-You: I want to add a test feature
-```
-
-### Updating the Plugin
-
-```bash
-# When updates are available
 /plugin update skilled-spec
 
 # Or reinstall
@@ -63,7 +111,7 @@ You: I want to add a test feature
 /plugin install skilled-spec
 ```
 
-## Method 2: Direct Copy
+## Method 3: Direct Copy
 
 Direct copy is simpler for small teams or when you want to customize the skills heavily.
 
