@@ -1,6 +1,6 @@
 {
   "name": "skilled-spec",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spec-driven development for Claude Code - Natural language skills for structured requirements and test-driven implementation",
   "keywords": [
     "claude-code",
