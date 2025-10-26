@@ -17,9 +17,9 @@
     "documentation"
   ],
   "skills": [
-    "./spec-proposal-creation",
-    "./spec-implementation",
-    "./spec-archiving",
-    "./spec-context-loading"
+    "./skills/spec-proposal-creation",
+    "./skills/spec-implementation",
+    "./skills/spec-archiving",
+    "./skills/spec-context-loading"
   ]
 }
