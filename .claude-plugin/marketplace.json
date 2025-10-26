@@ -1,13 +1,13 @@
 {
   "name": "spec-driven-dev-marketplace",
   "owner": {
-    "name": "Spec'd Out Skills"
+    "name": "Skilled Spec"
   },
   "description": "Official marketplace for spec-driven development Claude Code plugin",
   "plugins": [
     {
       "name": "spec-driven-dev",
-      "source": ".",
+      "source": "./",
       "description": "Complete spec-driven development workflow with 4 integrated skills for proposals, implementation, archiving, and context loading"
     }
   ]

@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide covers both installation methods for Spec'd Out Skills. Choose the method that best fits your workflow.
+This guide covers both installation methods for Skilled Spec. Choose the method that best fits your workflow.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ cd your-project
 claude
 
 # Add the marketplace (one-time setup)
-/plugin marketplace add https://github.com/mahidalhan/specd-out-skills
+/plugin marketplace add https://github.com/mahidalhan/skilled-spec
 ```
 
 ### Step 2: Install the Plugin
@@ -74,11 +74,11 @@ Direct copy is simpler for small teams or when you want to customize the skills 
 cd your-project
 
 # Clone into .claude/plugins directory
-git clone https://github.com/mahidalhan/specd-out-skills .claude/plugins/spec-driven-dev
+git clone https://github.com/mahidalhan/skilled-spec .claude/plugins/skilled-spec
 
 # Copy skills to .claude/skills (so Claude Code finds them)
 mkdir -p .claude/skills
-cp -r .claude/plugins/spec-driven-dev/skills/* .claude/skills/
+cp -r .claude/plugins/skilled-spec/skills/* .claude/skills/
 
 # Start Claude Code
 claude
@@ -88,8 +88,8 @@ claude
 
 ```bash
 # Clone the repository
-git clone https://github.com/mahidalhan/specd-out-skills
-cd specd-out-skills
+git clone https://github.com/mahidalhan/skilled-spec
+cd skilled-spec
 
 # The skills directory is already in place
 # Start Claude Code
@@ -105,15 +105,15 @@ claude
 cd your-project
 
 # Add as a subtree or submodule
-git subtree add --prefix .claude/skills/spec-driven-dev \
-  https://github.com/mahidalhan/specd-out-skills.git main --squash
+git subtree add --prefix .claude/skills/skilled-spec \
+  https://github.com/mahidalhan/skilled-spec.git main --squash
 
 # Or as a submodule
-git submodule add https://github.com/mahidalhan/specd-out-skills.git \
-  .claude/plugins/spec-driven-dev
+git submodule add https://github.com/mahidalhan/skilled-spec.git \
+  .claude/plugins/skilled-spec
 
 # Copy skills
-cp -r .claude/plugins/spec-driven-dev/skills/* .claude/skills/
+cp -r .claude/plugins/skilled-spec/skills/* .claude/skills/
 
 # Commit
 git add .claude/
@@ -186,7 +186,7 @@ spec/
    ```bash
    # Skills should be in one of these locations:
    ls -la .claude/skills/
-   ls -la .claude/plugins/spec-driven-dev/skills/
+   ls -la .claude/plugins/skilled-spec/skills/
    ```
 3. **Try explicit activation:**
    ```
@@ -205,8 +205,8 @@ spec/
    ```
 2. **Try adding marketplace again:**
    ```bash
-   /plugin marketplace remove specd-out-skills
-   /plugin marketplace add https://github.com/mahidalhan/specd-out-skills
+   /plugin marketplace remove skilled-spec
+   /plugin marketplace add https://github.com/mahidalhan/skilled-spec
    ```
 3. **Check network connection** (marketplace requires internet access)
 4. **Fall back to direct copy method** if plugin system has issues
@@ -240,7 +240,7 @@ rm -rf .claude/skills/spec-archiving
 rm -rf .claude/skills/spec-context-loading
 
 # Or remove plugin
-rm -rf .claude/plugins/spec-driven-dev
+rm -rf .claude/plugins/skilled-spec
 
 # Then reinstall
 ```
@@ -254,7 +254,7 @@ rm -rf .claude/plugins/spec-driven-dev
 /plugin uninstall spec-driven-dev
 
 # Or manually remove
-rm -rf .claude/plugins/spec-driven-dev
+rm -rf .claude/plugins/skilled-spec
 ```
 
 ### Remove Direct Copy
@@ -279,7 +279,7 @@ If you want to remove everything:
 ```bash
 # Remove skills
 rm -rf .claude/skills
-rm -rf .claude/plugins/spec-driven-dev
+rm -rf .claude/plugins/skilled-spec
 
 # Remove specs (careful!)
 rm -rf spec/
@@ -297,7 +297,7 @@ After installation:
 ## Getting Help
 
 - **Documentation:** [README.md](README.md), [CLAUDE.md](CLAUDE.md)
-- **Issues:** [GitHub Issues](https://github.com/mahidalhan/specd-out-skills/issues)
+- **Issues:** [GitHub Issues](https://github.com/mahidalhan/skilled-spec/issues)
 - **OpenSpec:** [OpenSpec Documentation](https://github.com/Fission-AI/OpenSpec) (methodology reference)
 - **Claude Code:** [Official Docs](https://docs.claude.com/en/docs/claude-code/overview)
 

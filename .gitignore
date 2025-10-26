@@ -34,7 +34,7 @@ node_modules/
 
 # Claude Code plugin installation artifacts
 # (created when plugin is installed in user projects)
-.claude/plugins/spec-driven-dev/
+.claude/plugins/skilled-spec/
 .claude/skills/spec-proposal-creation/
 .claude/skills/spec-implementation/
 .claude/skills/spec-archiving/

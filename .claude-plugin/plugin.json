@@ -3,9 +3,9 @@
   "description": "Spec-driven development workflow for Claude Code. Create proposals, implement with testing, and archive changes with full traceability. Natural language activation - no slash commands needed.",
   "version": "1.0.0",
   "author": {
-    "name": "Spec'd Out Skills Contributors"
+    "name": "Skilled Spec Contributors"
   },
-  "homepage": "https://github.com/mahidalhan/specd-out-skills",
+  "homepage": "https://github.com/mahidalhan/skilled-spec",
   "license": "MIT",
   "keywords": [
     "specifications",
