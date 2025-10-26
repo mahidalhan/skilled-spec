@@ -114,7 +114,7 @@ function install() {
     log('📚 Next steps:', 'bright');
     log('   1. Start Claude Code: claude', 'blue');
     log('   2. Try: "Create a proposal for user authentication"', 'blue');
-    log('   3. Read: CLAUDE.md for usage instructions\n', 'blue');
+    log('   3. Read: README for usage examples\n', 'blue');
 
     log('🔗 Learn more: https://github.com/mahidalhan/skilled-spec\n', 'blue');
 
