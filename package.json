@@ -1,0 +1,42 @@
+{
+  "name": "skilled-spec",
+  "version": "1.0.0",
+  "description": "Spec-driven development for Claude Code - Natural language skills for structured requirements and test-driven implementation",
+  "keywords": [
+    "claude-code",
+    "spec-driven",
+    "requirements",
+    "EARS",
+    "testing",
+    "TDD",
+    "openspec",
+    "cli"
+  ],
+  "bin": {
+    "skilled-spec": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    ".claude-plugin/",
+    "CLAUDE.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node bin/install.js --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahidalhan/skilled-spec.git"
+  },
+  "author": "Skilled Spec Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mahidalhan/skilled-spec/issues"
+  },
+  "homepage": "https://github.com/mahidalhan/skilled-spec#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

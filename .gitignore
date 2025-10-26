@@ -24,8 +24,9 @@ yarn-error.log*
 spec/
 !spec/.gitkeep
 
-# Node modules (if users add any tooling)
+# Node modules
 node_modules/
+package-lock.json
 
 # Environment files
 .env

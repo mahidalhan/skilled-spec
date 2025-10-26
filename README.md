@@ -63,55 +63,24 @@ Claude: [spec-proposal-creation activates]
 
 ### Installation
 
-**Option 1: Project-Specific (Recommended)**
+**NPX (Recommended - One Command)**
 
-Keeps plugin scoped to your project for easy access and version control.
+Installs skills directly to your project's `.claude/skills/` directory.
 
 ```bash
-# Clone into your project
-cd your-project
-git clone https://github.com/mahidalhan/skilled-spec
-
-# Configure .claude/settings.json
-cat > .claude/settings.json << 'EOF'
-{
-  "extraKnownMarketplaces": {
-    "skilled-spec-local": {
-      "source": {
-        "source": "directory",
-        "path": "../skilled-spec"
-      }
-    }
-  },
-  "enabledPlugins": {
-    "skilled-spec@skilled-spec-local": true
-  }
-}
-EOF
-
-# Restart Claude Code and trust the configuration
+# In your project directory
+npx skilled-spec@latest
 ```
 
-**Option 2: Global Plugin**
+That's it! Skills are installed and ready to use.
+
+**Global Plugin**
 
 Installs to `~/.claude/plugins/marketplaces/` for use across all projects.
 
 ```bash
-claude
 /plugin marketplace add https://github.com/mahidalhan/skilled-spec
 /plugin install skilled-spec
-# Restart Claude Code
-```
-
-**Option 3: Direct Copy**
-
-Copy skills directly into your project.
-
-```bash
-cd your-project
-git clone https://github.com/mahidalhan/skilled-spec
-mkdir -p .claude/skills
-cp -r skilled-spec/skills/* .claude/skills/
 ```
 
 ### First Feature
