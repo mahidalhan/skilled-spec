@@ -63,7 +63,38 @@ Claude: [spec-proposal-creation activates]
 
 ### Installation
 
-**Option 1: Plugin (Recommended)**
+**Option 1: Project-Specific (Recommended)**
+
+Keeps plugin scoped to your project for easy access and version control.
+
+```bash
+# Clone into your project
+cd your-project
+git clone https://github.com/mahidalhan/skilled-spec
+
+# Configure .claude/settings.json
+cat > .claude/settings.json << 'EOF'
+{
+  "extraKnownMarketplaces": {
+    "skilled-spec-local": {
+      "source": {
+        "source": "directory",
+        "path": "../skilled-spec"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "skilled-spec@skilled-spec-local": true
+  }
+}
+EOF
+
+# Restart Claude Code and trust the configuration
+```
+
+**Option 2: Global Plugin**
+
+Installs to `~/.claude/plugins/marketplaces/` for use across all projects.
 
 ```bash
 claude
@@ -72,12 +103,15 @@ claude
 # Restart Claude Code
 ```
 
-**Option 2: Direct Copy**
+**Option 3: Direct Copy**
+
+Copy skills directly into your project.
 
 ```bash
 cd your-project
-git clone https://github.com/mahidalhan/skilled-spec .claude/plugins/skilled-spec
-cp -r .claude/plugins/skilled-spec/skills .claude/
+git clone https://github.com/mahidalhan/skilled-spec
+mkdir -p .claude/skills
+cp -r skilled-spec/skills/* .claude/skills/
 ```
 
 ### First Feature
@@ -215,15 +249,31 @@ All proposals are reviewable in pull requests.
 
 ## Troubleshooting
 
-**Skills not activating?** Use trigger phrases:
-- ✅ "create a proposal"
-- ✅ "implement the change"
-- ✅ "show me specs"
+**Skills not loading?**
+1. Restart Claude Code after installation
+2. Check plugin status: `/plugin`
+3. Verify skills location: `ls .claude/skills/` or `ls skilled-spec/skills/`
 
-**Need context?** Ask:
-- "What specs exist?"
-- "What changes are active?"
-- "Show me the dashboard"
+**Skills not activating?** Use trigger phrases:
+- ✅ "create a proposal for X"
+- ✅ "implement the X proposal"
+- ✅ "archive the X change"
+- ✅ "what specs exist?"
+
+**Plugin installation fails?**
+```bash
+# Update the plugin
+/plugin update skilled-spec
+
+# Or reinstall
+/plugin uninstall skilled-spec
+/plugin install skilled-spec
+```
+
+**Project-specific setup not working?**
+- Ensure `.claude/settings.json` path is correct (`../skilled-spec` relative to `.claude/`)
+- Trust the repository configuration when prompted
+- Verify: `ls -la skilled-spec/skills/` shows the 4 skill directories
 
 **Validation errors?** Claude shows exactly what's wrong:
 ```
