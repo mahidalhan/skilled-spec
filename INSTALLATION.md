@@ -26,8 +26,8 @@ claude
 ### Step 2: Install the Plugin
 
 ```bash
-# Install the spec-driven-dev plugin
-/plugin install spec-driven-dev
+# Install the skilled-spec plugin
+/plugin install skilled-spec
 
 # Claude Code will show a confirmation
 # Select "Install now" to proceed
@@ -56,11 +56,11 @@ You: I want to add a test feature
 
 ```bash
 # When updates are available
-/plugin update spec-driven-dev
+/plugin update skilled-spec
 
 # Or reinstall
-/plugin uninstall spec-driven-dev
-/plugin install spec-driven-dev
+/plugin uninstall skilled-spec
+/plugin install skilled-spec
 ```
 
 ## Method 2: Direct Copy
@@ -251,7 +251,7 @@ rm -rf .claude/plugins/skilled-spec
 
 ```bash
 # In Claude Code
-/plugin uninstall spec-driven-dev
+/plugin uninstall skilled-spec
 
 # Or manually remove
 rm -rf .claude/plugins/skilled-spec

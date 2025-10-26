@@ -89,7 +89,7 @@ claude
 /plugin marketplace add https://github.com/mahidalhan/skilled-spec
 
 # Install the plugin
-/plugin install spec-driven-dev
+/plugin install skilled-spec
 
 # Restart Claude Code
 ```
@@ -477,8 +477,8 @@ The difference: **alignment before action**.
 **Option 1: Plugin-based (Recommended for teams)**
 
 1. Create a private plugin marketplace (GitHub repo)
-2. Add `spec-driven-dev` plugin to your marketplace
-3. Team members install via `/plugin install spec-driven-dev@your-org`
+2. Add `skilled-spec` plugin to your marketplace
+3. Team members install via `/plugin install skilled-spec@your-org`
 4. Everyone gets updates when you push to the marketplace
 
 **Option 2: Direct copy (Simple for small teams)**
@@ -537,8 +537,8 @@ Use the same plugin across multiple projects:
 
 ```bash
 # Install plugin once per project
-cd project-a && /plugin install spec-driven-dev
-cd project-b && /plugin install spec-driven-dev
+cd project-a && /plugin install skilled-spec
+cd project-b && /plugin install skilled-spec
 
 # Or use global installation (if supported)
 # Each project gets its own spec/ directory

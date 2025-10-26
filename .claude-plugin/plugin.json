@@ -1,5 +1,5 @@
 {
-  "name": "spec-driven-dev",
+  "name": "skilled-spec",
   "description": "Spec-driven development workflow for Claude Code. Create proposals, implement with testing, and archive changes with full traceability. Natural language activation - no slash commands needed.",
   "version": "1.0.0",
   "author": {
