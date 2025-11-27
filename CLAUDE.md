@@ -26,7 +26,7 @@ Claude Code plugin marketplace providing intelligent development tools for evide
 ### Testing locally
 ```bash
 /plugin marketplace add /path/to/skilled-spec
-/plugin install plugin-name@skilled-spec
+/plugin install plugin-name@skilled-intelligence
 ```
 
 ### Naming conventions

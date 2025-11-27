@@ -38,7 +38,7 @@ The Skilled Intelligence marketplace provides a collection of plugins that enhan
 Add the Skilled Intelligence marketplace to discover and install plugins:
 
 ```bash
-/plugin marketplace add mahidalhan/skilled-spec
+/plugin marketplace add mahidalhan/skilled-intelligence-marketplace
 ```
 
 ### Install Plugins
@@ -154,7 +154,7 @@ Configure plugins at the repository level to ensure consistent tooling across yo
      "extraKnownMarketplaces": [
        {
          "name": "skilled-intelligence",
-         "source": "github:mahidalhan/skilled-spec"
+         "source": "github:mahidalhan/skilled-intelligence-marketplace"
        }
      ]
    }
@@ -171,14 +171,14 @@ Multiple methods to add this marketplace:
 ### GitHub (Recommended)
 
 ```bash
-/plugin marketplace add mahidalhan/skilled-spec
+/plugin marketplace add mahidalhan/skilled-intelligence-marketplace
 /plugin install spec-workflow@skilled-intelligence
 ```
 
 ### Git URL
 
 ```bash
-/plugin marketplace add https://github.com/mahidalhan/skilled-spec.git
+/plugin marketplace add https://github.com/mahidalhan/skilled-intelligence-marketplace.git
 /plugin install spec-workflow@skilled-intelligence
 ```
 
