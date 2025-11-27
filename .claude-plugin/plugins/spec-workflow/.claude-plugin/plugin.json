@@ -1,0 +1,19 @@
+{
+  "name": "spec-workflow",
+  "description": "Complete spec-driven development methodology with orchestrated task execution. Includes proposal creation, TDD implementation, archiving, and context loading with shared infrastructure.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mahid Alhan"
+  },
+  "commands": [
+    "orchestrate.md"
+  ],
+  "keywords": [
+    "spec-driven",
+    "tdd",
+    "requirements",
+    "EARS",
+    "workflow",
+    "orchestration"
+  ]
+}
