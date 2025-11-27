@@ -1,6 +1,6 @@
 {
-  "name": "spec-intelligence-plugin",
-  "description": "Custom plugin for Spec-Driven Development with code context search capabilities",
+  "name": "skilled-intelligence",
+  "description": "Curated collection of intelligent development tools combining spec-driven methodology, AI-powered code search, and architectural analysis for evidence-based software engineering",
   "version": "1.0.0",
   "author": {
     "name": "Mahid Alhan"
