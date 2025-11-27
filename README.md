@@ -14,9 +14,9 @@ The Skilled Intelligence marketplace provides a collection of plugins that enhan
 
 | Plugin | Description | Skills | Commands |
 |--------|-------------|--------|----------|
-| **[spec-workflow](.claude-plugin/plugins/spec-workflow/README.md)** | Complete spec-driven development methodology with orchestrated task execution | 4 skills: proposal creation, TDD implementation, archiving, context loading | `/orchestrate` |
-| **[code-intelligence](.claude-plugin/plugins/code-intelligence/README.md)** | Intelligent code search and architectural analysis powered by Exa API | 2 skills: exa-code-context, architecture-introspector | - |
-| **[skill-tools](.claude-plugin/plugins/skill-tools/README.md)** | Meta-plugin for creating custom Claude skills | 1 skill: skill-creator | - |
+| **[spec-workflow](plugins/spec-workflow/README.md)** | Complete spec-driven development methodology with orchestrated task execution | 4 skills: proposal creation, TDD implementation, archiving, context loading | `/orchestrate` |
+| **[code-intelligence](plugins/code-intelligence/README.md)** | Intelligent code search and architectural analysis powered by Exa API | 2 skills: exa-code-context, architecture-introspector | - |
+| **[skill-tools](plugins/skill-tools/README.md)** | Meta-plugin for creating custom Claude skills | 1 skill: skill-creator | - |
 
 ### Quick Plugin Overview
 
@@ -94,7 +94,7 @@ Then implement:
 Implement the add-user-auth proposal
 ```
 
-See [spec-workflow README](.claude-plugin/plugins/spec-workflow/README.md) for complete documentation.
+See [spec-workflow README](plugins/spec-workflow/README.md) for complete documentation.
 
 ### code-intelligence Plugin
 
@@ -120,7 +120,7 @@ The code-intelligence plugin requires an Exa API key:
    pip install requests python-dotenv
    ```
 
-See [code-intelligence README](.claude-plugin/plugins/code-intelligence/README.md) for complete documentation.
+See [code-intelligence README](plugins/code-intelligence/README.md) for complete documentation.
 
 ### skill-tools Plugin
 
@@ -132,15 +132,15 @@ Create a skill for processing CSV files
 
 Claude guides you through skill design and generates the complete structure.
 
-See [skill-tools README](.claude-plugin/plugins/skill-tools/README.md) for complete documentation.
+See [skill-tools README](plugins/skill-tools/README.md) for complete documentation.
 
 ## Plugin Details
 
 Each plugin has comprehensive documentation:
 
-- **[spec-workflow](.claude-plugin/plugins/spec-workflow/README.md)** - Complete spec-driven development workflow, EARS requirements format, orchestration patterns
-- **[code-intelligence](.claude-plugin/plugins/code-intelligence/README.md)** - Exa API setup, code search examples, architecture analysis methodology
-- **[skill-tools](.claude-plugin/plugins/skill-tools/README.md)** - Skill creation workflow, scaffolding scripts, validation tools
+- **[spec-workflow](plugins/spec-workflow/README.md)** - Complete spec-driven development workflow, EARS requirements format, orchestration patterns
+- **[code-intelligence](plugins/code-intelligence/README.md)** - Exa API setup, code search examples, architecture analysis methodology
+- **[skill-tools](plugins/skill-tools/README.md)** - Skill creation workflow, scaffolding scripts, validation tools
 
 ## Team Setup
 
@@ -222,7 +222,7 @@ Multiple methods to add this marketplace:
 /plugin marketplace remove skilled-intelligence
 ```
 
-## Comparison with OpenSpec
+## Comparison of spec-workflow plugin with OpenSpec
 
 The spec-workflow plugin shares OpenSpec's proven methodology, adapted for Claude Code:
 
@@ -267,9 +267,9 @@ The spec-workflow plugin shares OpenSpec's proven methodology, adapted for Claud
 
 **Plugin-specific issues?**
 - See individual plugin README files for detailed troubleshooting
-- [spec-workflow](.claude-plugin/plugins/spec-workflow/README.md)
-- [code-intelligence](.claude-plugin/plugins/code-intelligence/README.md)
-- [skill-tools](.claude-plugin/plugins/skill-tools/README.md)
+- [spec-workflow](plugins/spec-workflow/README.md)
+- [code-intelligence](plugins/code-intelligence/README.md)
+- [skill-tools](plugins/skill-tools/README.md)
 
 ## Version History
 
