@@ -1,14 +1,30 @@
 {
-  "name": "skilled-spec-marketplace",
+  "name": "skilled-intelligence",
   "owner": {
-    "name": "Skilled Spec"
+    "name": "Mahid Alhan"
   },
-  "description": "Official marketplace for spec-driven development Claude Code plugin",
+  "description": "Curated collection of intelligent development tools combining spec-driven methodology, AI-powered code search, and architectural analysis for evidence-based software engineering",
   "plugins": [
     {
-      "name": "skilled-spec",
-      "source": "./",
-      "description": "Complete spec-driven development workflow with 4 integrated skills for proposals, implementation, archiving, and context loading"
+      "name": "spec-workflow",
+      "source": "./plugins/spec-workflow",
+      "description": "Complete spec-driven development methodology with orchestrated task execution. Includes proposal creation, TDD implementation, archiving, and context loading with shared infrastructure.",
+      "version": "1.0.0",
+      "keywords": ["spec-driven", "tdd", "requirements", "EARS", "workflow", "orchestration"]
+    },
+    {
+      "name": "code-intelligence",
+      "source": "./plugins/code-intelligence",
+      "description": "Intelligent code search and architectural analysis powered by Exa API. Search billions of GitHub repos for real examples and analyze architectures using first-principles thinking.",
+      "version": "1.0.0",
+      "keywords": ["code-search", "exa", "architecture", "first-principles", "analysis", "github"]
+    },
+    {
+      "name": "skill-tools",
+      "source": "./plugins/skill-tools",
+      "description": "Meta-plugin for creating custom Claude skills. Includes scaffolding, validation, and packaging scripts.",
+      "version": "1.0.0",
+      "keywords": ["skill-development", "meta", "scaffolding", "validation", "packaging"]
     }
   ]
 }
