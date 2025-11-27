@@ -1,6 +1,6 @@
 {
-  "name": "tannery-app-plugin",
-  "description": "Custom plugin for Tannery ERP application with code context search capabilities",
+  "name": "spec-intelligence-plugin",
+  "description": "Custom plugin for Spec-Driven Development with code context search capabilities",
   "version": "1.0.0",
   "author": {
     "name": "Mahid Alhan"
