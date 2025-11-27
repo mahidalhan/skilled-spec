@@ -5,14 +5,24 @@ Claude Code plugin marketplace providing intelligent development tools for evide
 ## Structure
 
 ```
-.claude-plugin/
-├── marketplace.json           # Marketplace manifest
-├── plugin.json               # Root plugin metadata
-├── plugins/                  # Individual plugins
-│   ├── spec-workflow/        # Spec-driven development
-│   ├── code-intelligence/    # Exa-powered code search
-│   └── skill-tools/          # Skill creation tools
-└── skills/                   # Shared skills
+skilled-intelligence-marketplace/
+├── .claude-plugin/
+│   └── marketplace.json           # Marketplace manifest
+├── plugins/                       # Individual plugins (at repo root)
+│   ├── spec-workflow/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/
+│   │   ├── skills/
+│   │   └── README.md
+│   ├── code-intelligence/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/
+│   │   └── README.md
+│   └── skill-tools/
+│       ├── .claude-plugin/plugin.json
+│       └── README.md
+├── skills/                        # Shared skills
+└── README.md
 ```
 
 ## Plugins
@@ -25,7 +35,7 @@ Claude Code plugin marketplace providing intelligent development tools for evide
 
 ### Testing locally
 ```bash
-/plugin marketplace add /path/to/skilled-spec
+/plugin marketplace add /path/to/skilled-intelligence-marketplace
 /plugin install plugin-name@skilled-intelligence
 ```
 
@@ -35,7 +45,8 @@ Claude Code plugin marketplace providing intelligent development tools for evide
 - Skill names: kebab-case matching directory names
 
 ### File organization
-- Each plugin has `.claude-plugin/plugin.json` for metadata
+- Marketplace manifest: `.claude-plugin/marketplace.json`
+- Each plugin has its own `.claude-plugin/plugin.json` for metadata
 - Skills use `SKILL.md` with YAML frontmatter
 - Descriptions must match between `marketplace.json` and individual `plugin.json` files
 
@@ -44,6 +55,7 @@ Claude Code plugin marketplace providing intelligent development tools for evide
 - [Claude Plugins Guide](https://code.claude.com/docs/en/plugins)
 - [Plugin Marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
 
-U have access to the following tools:
-- Github CLI
+## Tools Available
+
+- GitHub CLI
 
