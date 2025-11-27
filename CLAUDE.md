@@ -43,3 +43,7 @@ Claude Code plugin marketplace providing intelligent development tools for evide
 
 - [Claude Plugins Guide](https://code.claude.com/docs/en/plugins)
 - [Plugin Marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
+
+U have access to the following tools:
+- Github CLI
+

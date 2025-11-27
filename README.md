@@ -57,13 +57,13 @@ Install specific plugins:
 
 ```bash
 # Install spec-workflow plugin
-/plugin install spec-workflow@mahidalhan/skilled-spec
+/plugin install spec-workflow@skilled-intelligence
 
 # Install code-intelligence plugin
-/plugin install code-intelligence@mahidalhan/skilled-spec
+/plugin install code-intelligence@skilled-intelligence
 
 # Install skill-tools plugin
-/plugin install skill-tools@mahidalhan/skilled-spec
+/plugin install skill-tools@skilled-intelligence
 ```
 
 ### Verify Installation
@@ -172,21 +172,21 @@ Multiple methods to add this marketplace:
 
 ```bash
 /plugin marketplace add mahidalhan/skilled-spec
-/plugin install spec-workflow@mahidalhan/skilled-spec
+/plugin install spec-workflow@skilled-intelligence
 ```
 
 ### Git URL
 
 ```bash
 /plugin marketplace add https://github.com/mahidalhan/skilled-spec.git
-/plugin install spec-workflow@mahidalhan/skilled-spec
+/plugin install spec-workflow@skilled-intelligence
 ```
 
 ### Local Development
 
 ```bash
 /plugin marketplace add /path/to/skilled-spec
-/plugin install spec-workflow@mahidalhan/skilled-spec
+/plugin install spec-workflow@skilled-intelligence
 ```
 
 ## Plugin Management
@@ -205,21 +205,21 @@ Multiple methods to add this marketplace:
 /plugin update
 
 # Update specific plugin
-/plugin update spec-workflow@mahidalhan/skilled-spec
+/plugin update spec-workflow@skilled-intelligence
 ```
 
 ### Enable/Disable
 
 ```bash
-/plugin enable plugin-name@mahidalhan/skilled-spec
-/plugin disable plugin-name@mahidalhan/skilled-spec
+/plugin enable plugin-name@skilled-intelligence
+/plugin disable plugin-name@skilled-intelligence
 ```
 
 ### Uninstall
 
 ```bash
-/plugin uninstall plugin-name@mahidalhan/skilled-spec
-/plugin marketplace remove mahidalhan/skilled-spec
+/plugin uninstall plugin-name@skilled-intelligence
+/plugin marketplace remove skilled-intelligence
 ```
 
 ## Comparison with OpenSpec
@@ -253,11 +253,11 @@ The spec-workflow plugin shares OpenSpec's proven methodology, adapted for Claud
 **Plugin installation fails?**
 ```bash
 # Update the plugin
-/plugin update plugin-name@mahidalhan/skilled-spec
+/plugin update plugin-name@skilled-intelligence
 
 # Or reinstall
-/plugin uninstall plugin-name@mahidalhan/skilled-spec
-/plugin install plugin-name@mahidalhan/skilled-spec
+/plugin uninstall plugin-name@skilled-intelligence
+/plugin install plugin-name@skilled-intelligence
 ```
 
 **API key errors (code-intelligence)?**
