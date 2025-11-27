@@ -1,95 +1,87 @@
-# Skilled Spec
+# Skilled Intelligence Marketplace
 
-**Spec-driven development for Claude Code, powered by natural language.**
+**Curated collection of intelligent development tools combining spec-driven methodology, AI-powered code search, and architectural analysis for evidence-based software engineering.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> Inspired by [OpenSpec](https://github.com/Fission-AI/OpenSpec), reimagined as Claude Code skills with zero installation friction.
+> Extend Claude Code with custom commands, agents, hooks, Skills, and MCP servers through the plugin system.
 
-## Why Skilled Spec?
+## Overview
 
-AI coding assistants are powerful, but without structure they guess. Guesses compound into assumptions, bugs, and rewrites. **Spec-driven development ensures human and AI align on requirements before writing code.**
+The Skilled Intelligence marketplace provides a collection of plugins that enhance Claude Code with structured development workflows, intelligent code search, and architectural analysis capabilities. All plugins are designed to work seamlessly together, enabling evidence-based software engineering practices.
 
-Skilled Spec brings OpenSpec's proven workflow to Claude Code through four composable skills that activate through natural conversation. No CLI tools to install, no commands to memorize—just describe what you want.
+## Available Plugins
 
-```
-You: I want to add user authentication
-Claude: [spec-proposal-creation activates]
-        Creating proposal for user authentication...
+| Plugin | Description | Skills | Commands |
+|--------|-------------|--------|----------|
+| **[spec-workflow](.claude-plugin/plugins/spec-workflow/README.md)** | Complete spec-driven development methodology with orchestrated task execution | 4 skills: proposal creation, TDD implementation, archiving, context loading | `/orchestrate` |
+| **[code-intelligence](.claude-plugin/plugins/code-intelligence/README.md)** | Intelligent code search and architectural analysis powered by Exa API | 2 skills: exa-code-context, architecture-introspector | - |
+| **[skill-tools](.claude-plugin/plugins/skill-tools/README.md)** | Meta-plugin for creating custom Claude skills | 1 skill: skill-creator | - |
 
-        ✓ spec/changes/add-user-auth/proposal.md
-        ✓ spec/changes/add-user-auth/tasks.md
-        ✓ spec/changes/add-user-auth/specs/authentication/spec-delta.md
+### Quick Plugin Overview
 
-        Review and say "implement it" when ready.
-```
+**spec-workflow** - Structured requirements, test-driven implementation, and systematic archiving. Includes proposal creation, TDD implementation, archiving, and context loading with shared infrastructure.
 
-## The Workflow
+**code-intelligence** - Search billions of GitHub repos for real examples and analyze architectures using first-principles thinking.
 
-```
-┌─────────────────────────────────────┐
-│  1. PROPOSE                         │
-│  "I want to add search"             │
-│  → Structured proposal              │
-│  → EARS requirements                │
-│  → Implementation tasks             │
-└─────────────────────────────────────┘
-                ↓
-┌─────────────────────────────────────┐
-│  2. IMPLEMENT                       │
-│  "Implement the search proposal"    │
-│  → Execute tasks sequentially       │
-│  → Test before completion           │
-│  → Track with TodoWrite             │
-└─────────────────────────────────────┘
-                ↓
-┌─────────────────────────────────────┐
-│  3. ARCHIVE                         │
-│  "Archive the search change"        │
-│  → Merge spec deltas                │
-│  → Timestamped archive              │
-│  → Living docs updated              │
-└─────────────────────────────────────┘
-```
+**skill-tools** - Comprehensive guide and tools for building custom Claude skills with scaffolding, validation, and packaging scripts.
 
-**Changes are proposed, reviewed, implemented, and archived with full traceability.**
-
-## Getting Started
+## Installation
 
 ### Prerequisites
 
 - [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) installed
-- A project where you want spec-driven development
+- Basic familiarity with command-line interfaces
 
-### Installation
+### Add Marketplace
 
-**NPX (Recommended - One Command)**
-
-Installs skills directly to your project's `.claude/skills/` directory.
+Add the Skilled Intelligence marketplace to discover and install plugins:
 
 ```bash
-# In your project directory
-npx skilled-spec@latest
+/plugin marketplace add mahidalhan/skilled-spec
 ```
 
-That's it! Skills are installed and ready to use.
+### Install Plugins
 
-**Global Plugin**
-
-Installs to `~/.claude/plugins/marketplaces/` for use across all projects.
+#### Via Interactive Menu (Recommended)
 
 ```bash
-/plugin marketplace add https://github.com/mahidalhan/skilled-spec
-/plugin install skilled-spec
+/plugin
 ```
 
-### First Feature
+Select "Browse Plugins" to see available options with descriptions, features, and installation options.
 
-Add a search feature to see the workflow in action:
+#### Via Direct Commands
 
-**1. Propose**
+Install specific plugins:
+
+```bash
+# Install spec-workflow plugin
+/plugin install spec-workflow@mahidalhan/skilled-spec
+
+# Install code-intelligence plugin
+/plugin install code-intelligence@mahidalhan/skilled-spec
+
+# Install skill-tools plugin
+/plugin install skill-tools@mahidalhan/skilled-spec
 ```
-You: I want to add full-text search with category filters
+
+### Verify Installation
+
+After installing a plugin:
+
+1. **Check available commands**: Run `/help` to see new commands
+2. **Test plugin features**: Try the plugin's commands and features
+3. **Review plugin details**: Use `/plugin` → "Manage Plugins" to see what the plugin provides
+
+## Quick Start
+
+### spec-workflow Plugin
+
+Create structured proposals, implement with TDD, and archive changes:
+
+```
+Create a proposal for adding user authentication
 ```
 
 Claude generates:
@@ -97,97 +89,146 @@ Claude generates:
 - `tasks.md` - Implementation checklist
 - `spec-delta.md` - EARS requirements
 
-**2. Review and refine**
+Then implement:
 ```
-You: Add pagination to search results
-```
-
-Claude updates the proposal.
-
-**3. Implement**
-```
-You: Implement the search proposal
+Implement the add-user-auth proposal
 ```
 
-Claude executes tasks with progress tracking:
-```
-✅ Add search indexes
-✅ Create API endpoint
-⏳ Build UI component (testing...)
-⬜ Add filter controls
-⬜ Integration tests
-```
+See [spec-workflow README](.claude-plugin/plugins/spec-workflow/README.md) for complete documentation.
 
-**4. Archive** (after deployment)
-```
-You: Archive the search change
-```
+### code-intelligence Plugin
 
-Claude merges spec deltas into living documentation and creates timestamped archive.
-
-**That's it.** Plan → Implement → Archive.
-
-## The Four Skills
-
-| Skill | Triggers | Purpose |
-|-------|----------|---------|
-| **spec-proposal-creation** | "create proposal", "plan feature" | Generates structured proposals with EARS requirements |
-| **spec-implementation** | "implement", "build" | Executes tasks with testing and progress tracking |
-| **spec-archiving** | "archive", "merge specs" | Merges deltas into living specs, creates archive |
-| **spec-context-loading** | "what specs exist", "show changes" | Discovers specs, searches requirements, shows dashboard |
-
-Each skill has detailed documentation in its `SKILL.md` file.
-
-## File Structure
+Search for real code examples and analyze architectures:
 
 ```
-your-project/
-├── .claude/
-│   └── skills/                      # or plugins/skilled-spec/
-│       ├── spec-proposal-creation/
-│       ├── spec-implementation/
-│       ├── spec-archiving/
-│       └── spec-context-loading/
-└── spec/
-    ├── specs/                       # Current state (source of truth)
-    │   └── {capability}/spec.md
-    ├── changes/                     # Proposals (work in progress)
-    │   └── {change-id}/
-    │       ├── proposal.md
-    │       ├── tasks.md
-    │       ├── IMPLEMENTED
-    │       └── specs/{capability}/spec-delta.md
-    └── archive/                     # History (timestamped)
-        └── 2025-10-26-{change-id}/
+How do I use React hooks for state management?
 ```
 
-## EARS Requirements Format
+The plugin searches billions of GitHub repos and returns real, working examples.
 
-Requirements use **EARS** (Easy Approach to Requirements Syntax):
+#### Environment Setup
 
-```markdown
-### Requirement: User Login
-WHEN a user submits valid credentials,
-the system SHALL authenticate the user and create a session.
+The code-intelligence plugin requires an Exa API key:
 
-#### Scenario: Successful Login
-GIVEN a user with valid credentials
-WHEN the user submits the login form
-THEN the system creates an authenticated session
-AND redirects to the dashboard
+1. **Get API Key**: Visit [Exa Dashboard](https://dashboard.exa.ai/api-keys)
+2. **Configure Environment**: Add to `.env` at project root:
+   ```bash
+   EXA_API_KEY=your-api-key-here
+   ```
+3. **Install Dependencies**:
+   ```bash
+   pip install requests python-dotenv
+   ```
+
+See [code-intelligence README](.claude-plugin/plugins/code-intelligence/README.md) for complete documentation.
+
+### skill-tools Plugin
+
+Create custom Claude skills with scaffolding tools:
+
+```
+Create a skill for processing CSV files
 ```
 
-**Why EARS?** Clear triggers (WHEN), binding requirements (SHALL), testable scenarios (GIVEN/WHEN/THEN).
+Claude guides you through skill design and generates the complete structure.
 
-Learn more: [EARS Format Guide](https://alistairmavin.com/ears/)
+See [skill-tools README](.claude-plugin/plugins/skill-tools/README.md) for complete documentation.
+
+## Plugin Details
+
+Each plugin has comprehensive documentation:
+
+- **[spec-workflow](.claude-plugin/plugins/spec-workflow/README.md)** - Complete spec-driven development workflow, EARS requirements format, orchestration patterns
+- **[code-intelligence](.claude-plugin/plugins/code-intelligence/README.md)** - Exa API setup, code search examples, architecture analysis methodology
+- **[skill-tools](.claude-plugin/plugins/skill-tools/README.md)** - Skill creation workflow, scaffolding scripts, validation tools
+
+## Team Setup
+
+Configure plugins at the repository level to ensure consistent tooling across your team. When team members trust your repository folder, Claude Code automatically installs specified marketplaces and plugins.
+
+**To set up team plugins:**
+
+1. Add marketplace and plugin configuration to your repository's `.claude/settings.json`:
+   ```json
+   {
+     "extraKnownMarketplaces": [
+       {
+         "name": "skilled-intelligence",
+         "source": "github:mahidalhan/skilled-spec"
+       }
+     ]
+   }
+   ```
+2. Team members trust the repository folder
+3. Plugins install automatically for all team members
+
+For complete instructions including configuration examples, marketplace setup, and rollout best practices, see [Configure team marketplaces](https://code.claude.com/docs/en/plugin-marketplaces#how-to-configure-team-marketplaces).
+
+## Distribution
+
+Multiple methods to add this marketplace:
+
+### GitHub (Recommended)
+
+```bash
+/plugin marketplace add mahidalhan/skilled-spec
+/plugin install spec-workflow@mahidalhan/skilled-spec
+```
+
+### Git URL
+
+```bash
+/plugin marketplace add https://github.com/mahidalhan/skilled-spec.git
+/plugin install spec-workflow@mahidalhan/skilled-spec
+```
+
+### Local Development
+
+```bash
+/plugin marketplace add /path/to/skilled-spec
+/plugin install spec-workflow@mahidalhan/skilled-spec
+```
+
+## Plugin Management
+
+### List Installed
+
+```bash
+/plugin list
+/plugin marketplace list
+```
+
+### Update Plugins
+
+```bash
+# Update all plugins
+/plugin update
+
+# Update specific plugin
+/plugin update spec-workflow@mahidalhan/skilled-spec
+```
+
+### Enable/Disable
+
+```bash
+/plugin enable plugin-name@mahidalhan/skilled-spec
+/plugin disable plugin-name@mahidalhan/skilled-spec
+```
+
+### Uninstall
+
+```bash
+/plugin uninstall plugin-name@mahidalhan/skilled-spec
+/plugin marketplace remove mahidalhan/skilled-spec
+```
 
 ## Comparison with OpenSpec
 
-Skilled Spec shares OpenSpec's proven methodology, adapted for Claude Code:
+The spec-workflow plugin shares OpenSpec's proven methodology, adapted for Claude Code:
 
-| Feature | OpenSpec | Skilled Spec |
-|---------|----------|--------------|
-| **Installation** | `npm install -g` | `/plugin install` or copy |
+| Feature | OpenSpec | spec-workflow Plugin |
+|---------|----------|---------------------|
+| **Installation** | `npm install -g` | `/plugin install` |
 | **Activation** | `/openspec:proposal` | "create a proposal" |
 | **Validation** | `openspec validate` | Grep patterns |
 | **Discovery** | `openspec list` | "what specs exist" |
@@ -198,57 +239,42 @@ Skilled Spec shares OpenSpec's proven methodology, adapted for Claude Code:
 
 **Use OpenSpec if** you want the official CLI with enterprise tooling and IDE-agnostic workflows.
 
-**Use Skilled Spec if** you're already using Claude Code and want zero-friction, natural language activation.
+**Use spec-workflow plugin if** you're already using Claude Code and want zero-friction, natural language activation.
 
-**Credit**: Methodology by [OpenSpec team](https://github.com/Fission-AI/OpenSpec). We make it accessible through Claude Skills.
-
-## Team Adoption
-
-**Plugin-based** (automatic updates):
-1. Create private marketplace repo
-2. Add `skilled-spec` plugin
-3. Team installs: `/plugin install skilled-spec@your-org`
-
-**Direct copy** (simple setup):
-1. Add skills to `.claude/skills/` in project repo
-2. Commit to version control
-3. Team clones and gets skills automatically
-
-All proposals are reviewable in pull requests.
+**Credit**: Methodology by [OpenSpec team](https://github.com/Fission-AI/OpenSpec). We make it accessible through Claude Plugins.
 
 ## Troubleshooting
 
-**Skills not loading?**
+**Plugins not loading?**
 1. Restart Claude Code after installation
 2. Check plugin status: `/plugin`
-3. Verify skills location: `ls .claude/skills/` or `ls skilled-spec/skills/`
-
-**Skills not activating?** Use trigger phrases:
-- ✅ "create a proposal for X"
-- ✅ "implement the X proposal"
-- ✅ "archive the X change"
-- ✅ "what specs exist?"
+3. Verify marketplace: `/plugin marketplace list`
 
 **Plugin installation fails?**
 ```bash
 # Update the plugin
-/plugin update skilled-spec
+/plugin update plugin-name@mahidalhan/skilled-spec
 
 # Or reinstall
-/plugin uninstall skilled-spec
-/plugin install skilled-spec
+/plugin uninstall plugin-name@mahidalhan/skilled-spec
+/plugin install plugin-name@mahidalhan/skilled-spec
 ```
 
-**Project-specific setup not working?**
-- Ensure `.claude/settings.json` path is correct (`../skilled-spec` relative to `.claude/`)
-- Trust the repository configuration when prompted
-- Verify: `ls -la skilled-spec/skills/` shows the 4 skill directories
+**API key errors (code-intelligence)?**
+- Verify `EXA_API_KEY` is set in `.env` at project root
+- Check dependencies: `pip list | grep requests`
+- Restart Claude Code after configuration changes
 
-**Validation errors?** Claude shows exactly what's wrong:
-```
-✗ Missing scenario for Requirement: User Login
-  → Add "#### Scenario: ..." after the requirement
-```
+**Plugin-specific issues?**
+- See individual plugin README files for detailed troubleshooting
+- [spec-workflow](.claude-plugin/plugins/spec-workflow/README.md)
+- [code-intelligence](.claude-plugin/plugins/code-intelligence/README.md)
+- [skill-tools](.claude-plugin/plugins/skill-tools/README.md)
+
+## Version History
+
+- **1.0.1** - Current release with three plugins: spec-workflow, code-intelligence, skill-tools
+- **1.0.0** - Initial release
 
 ## Contributing
 
@@ -259,7 +285,7 @@ Contributions welcome!
 3. Test with real projects
 4. Submit PR
 
-**Ideas**: Reference files, language-specific templates, integration guides, validation patterns
+**Ideas**: New plugins, reference files, language-specific templates, integration guides, validation patterns
 
 ## License
 
@@ -268,15 +294,19 @@ MIT License - See [LICENSE](LICENSE)
 ## Acknowledgments
 
 - **[OpenSpec](https://github.com/Fission-AI/OpenSpec)** - Methodology and CLI tool
-- **[Anthropic](https://www.anthropic.com)** - Claude Code and Skills framework
+- **[Anthropic](https://www.anthropic.com)** - Claude Code and Plugins framework
 - **[EARS](https://alistairmavin.com/ears/)** - Requirements syntax
+- **[Exa](https://exa.ai)** - Code context search API
 
 ## Links
 
 - [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code/overview)
-- [Claude Skills Best Practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
+- [Claude Plugins Guide](https://code.claude.com/docs/en/plugins)
+- [Plugin Marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
+- [Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
 - [OpenSpec](https://github.com/Fission-AI/OpenSpec)
+- [Exa API](https://docs.exa.ai/reference/context)
 
 ---
 
-**Built with Claude Skills for Claude Code**
+**Built with Claude Plugins for Claude Code**
