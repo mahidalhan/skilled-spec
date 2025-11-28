@@ -6,6 +6,8 @@
 
 ## Available Plugins
 
+Each plugin is **self-contained and independently installable**. Install only what you need.
+
 | Plugin | Description | Skills |
 |--------|-------------|--------|
 | **[spec-workflow](plugins/spec-workflow/README.md)** | Spec-driven development with proposal creation, TDD, and archiving | 4 skills |
@@ -18,11 +20,13 @@
 # Add marketplace
 /plugin marketplace add mahidalhan/skilled-intelligence-marketplace
 
-# Install plugins
+# Install individual plugins (choose one or all)
 /plugin install spec-workflow@skilled-intelligence
 /plugin install code-intelligence@skilled-intelligence
 /plugin install skill-tools@skilled-intelligence
 ```
+
+**Note**: Each plugin is fully independent and can be installed separately. Choose only the plugins you need.
 
 Or use `/plugin` and select "Browse Plugins" for interactive installation.
 
