@@ -1,0 +1,15 @@
+{
+  "extraKnownMarketplaces": {
+    "skilled-intelligence": {
+      "source": {
+        "source": "github",
+        "repo": "mahidalhan/skilled-intelligence-marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "spec-workflow@skilled-intelligence": true,
+    "code-intelligence@skilled-intelligence": true,
+    "skill-tools@skilled-intelligence": true
+  }
+}

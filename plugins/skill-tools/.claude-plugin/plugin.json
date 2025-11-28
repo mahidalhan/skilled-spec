@@ -1,8 +1,13 @@
 {
   "name": "skill-tools",
-  "description": "Meta-plugin for creating custom Claude skills. Includes scaffolding, validation, and packaging scripts.",
   "version": "1.0.0",
+  "description": "Meta-plugin for creating custom Claude skills. Includes scaffolding, validation, and packaging scripts.",
   "author": {
-    "name": "Mahid Alhan"
-  }
+    "name": "Mahid Alhan",
+    "url": "https://github.com/mahidalhan"
+  },
+  "homepage": "https://github.com/mahidalhan/skilled-intelligence-marketplace/tree/master/plugins/skill-tools",
+  "repository": "https://github.com/mahidalhan/skilled-intelligence-marketplace",
+  "license": "MIT",
+  "keywords": ["skill-development", "meta", "scaffolding", "validation", "packaging"]
 }
